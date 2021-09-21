@@ -1,13 +1,16 @@
-version: '3'
-services: 
+version: "3"
+services:
   node-docker:
-    build: 
+    build:
       context: .
-      args: 
+      args:
         NODE_ENV: development
-    volumes: 
+
+    volumes:
       - ./:/app
       - /app/node_modules
-    environment: 
-      - PORT:3000
+    environment:
+      - PORT=3000
+      - MOUNGO_USERNAME=root
+      - MOUNGO_PASS=root
     command: npm run dev
