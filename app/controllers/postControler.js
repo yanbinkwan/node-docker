@@ -21,7 +21,7 @@ exports.getAllPost = async (req, res, next) => {
 
 exports.getOnePost = async (req, res, next) => {
   try {
-    const post = await PostModel.findById({ id: req.params.id });
+    const post = await PostModel.findById(req.params.id);
     res.status(200).json({
       status: 'success',
       data: {

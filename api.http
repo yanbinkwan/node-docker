@@ -1,0 +1,27 @@
+### Get all posts
+GET http://localhost:3000/api/v1/posts HTTP/1.1
+
+### Create one post
+POST http://localhost:3000/api/v1/posts HTTP/1.1
+content-type: application/json
+
+{
+    "title": "sample2",
+    "body": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+### Get one post with id
+GET http://localhost:3000/api/v1/posts/614b4a9e396198b8c9724047 HTTP/1.1
+
+### Update post
+PATCH http://localhost:3000/api/v1/posts/614b4a9e396198b8c9724047 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "sample1",
+    "body": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+### Delete one post
+DELETE  http://localhost:3000/api/v1/posts/614b4ba6df33f5c04679ceb2 HTTP/1.1
+
