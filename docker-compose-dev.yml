@@ -13,4 +13,5 @@ services:
       - PORT=3000
       - MOUNGO_USERNAME=root
       - MOUNGO_PASS=root
+      - REDIS_PORT=6071
     command: npm run dev
