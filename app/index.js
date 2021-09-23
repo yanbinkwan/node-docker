@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { MOUNGO_USERNAME, MOUNGO_PASS, MOUNGO_HOST, MOUNGO_PORT } = require("../config/config");
 const app = express();
 const postRouter = require('./routes/route');
+const authRouter = require('./routes/authRoute')
 
 
 const port = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1/posts', postRouter)
+app.use('/api/v1/auth', authRouter)
 
 app.listen(port, () => {
   console.log("The server has been running on port 3000");

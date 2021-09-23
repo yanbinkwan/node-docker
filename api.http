@@ -25,3 +25,20 @@ content-type: application/json
 ### Delete one post
 DELETE  http://localhost:3000/api/v1/posts/614b4ba6df33f5c04679ceb2 HTTP/1.1
 
+### Create a new user
+POST http://localhost:3000/api/v1/auth/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Jack",
+    "password": "password"
+}
+
+### use info to sign in
+POST http://localhost:3000/api/v1/auth/signin HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Jack",
+    "password": "password"
+}
