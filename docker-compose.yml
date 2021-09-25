@@ -2,8 +2,6 @@ version: "3"
 services:
   node-docker:
     build: .
-    ports:
-      - 3000:3000
     volumes:
       - ./:/app
       - /app/node_modules
@@ -11,7 +9,10 @@ services:
       - PORT:3000
     depends_on:
       - mongo
-
+  nginx:
+    image: nginx:stable-alpine
+    depends_on: 
+      - node-docker
   mongo:
     image: mongo
     restart: always

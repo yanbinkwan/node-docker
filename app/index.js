@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const redis = require('redis');
 const session = require('express-session');
+const cors = require('cors');
 const { MOUNGO_USERNAME, MOUNGO_PASS, MOUNGO_HOST, MOUNGO_PORT, SESSION_SECRET, REDIS_HOST, REDIS_PORT } = require("../config/config");
 
 let RedisStore = require('connect-redis')(session);
@@ -11,6 +12,8 @@ let redisClient = redis.createClient({
 })
 
 const app = express();
+app.use(cors({}));
+
 const postRouter = require('./routes/route');
 const authRouter = require('./routes/authRoute')
 
@@ -33,8 +36,8 @@ const connectRepeatly = () => {
 connectRepeatly();
 
 app.use(express.json());
-console.log('secre', SESSION_SECRET)
 
+app.enable('trust proxy');
 app.use(session({
   secret: SESSION_SECRET,
   store: new RedisStore({ client: redisClient }),
