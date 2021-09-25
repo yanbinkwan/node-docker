@@ -9,4 +9,4 @@ ARG NODE_ENV
 RUN npm install
 COPY . .
 EXPOSE $PORT
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev"]`
