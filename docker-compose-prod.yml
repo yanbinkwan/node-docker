@@ -1,15 +1,23 @@
-version: '3'
-services: 
-  nginx: 
-    volumes: 
+version: "3"
+services:
+  nginx:
+    volumes:
       - /nginx/default.conf:/usr/share/nginx/html
-    ports: 
+    ports:
       - 80:80
   node-docker:
-    build: 
+    build:
       context: .
-      args: 
+      args:
         NODE_ENV: production
-    environment: 
-      - PORT:3000
+    environment:
+      - NODE_ENV=production
+      - MOUNGO_USERNAME=${MOUNGO_USERNAME}
+      - MOUNGO_PASS=${MOUNGO_PASS}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - REDIS_PORT=6379
     command: npm run start
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
