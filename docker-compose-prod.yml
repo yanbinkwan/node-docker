@@ -12,8 +12,8 @@ services:
         NODE_ENV: production
     environment:
       - NODE_ENV=production
-      - MOUNGO_USERNAME=${MOUNGO_USERNAME}
-      - MOUNGO_PASS=${MOUNGO_PASS}
+      - MOUNGO_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MOUNGO_PASS=${MONGO_INITDB_ROOT_PASSWORD}
       - SESSION_SECRET=${SESSION_SECRET}
       - REDIS_PORT=6379
     command: npm run start
