@@ -10,6 +10,7 @@ services:
       context: .
       args:
         NODE_ENV: production
+    image: jameskwan96/node-docker
     environment:
       - NODE_ENV=production
       - MOUNGO_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
